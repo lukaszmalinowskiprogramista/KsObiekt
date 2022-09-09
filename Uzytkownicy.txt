@@ -1,4 +1,4 @@
-1|Mama|ma|
-2|Tata|ta|
-3|lukasz|m|
-4|michal|m|
+1|Lukasz|m|
+2|Michal|m|
+3|Monia|M|
+4|Kornelia|M|
