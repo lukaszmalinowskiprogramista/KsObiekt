@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>616</x>
+      <y>96</y>
+      <w>240</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>KsiazkaAdresowa
+--
+-UzytkownikMenedzer : uzytkownikMenedzer
+--
+KsiazkaAdresowa()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>440</x>
+      <y>216</y>
+      <w>256</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>UzytkownikMenedzer
+--
+- idZalogowanegoUzytkownika : Integer
+- uzytkownicy : vector &lt;Uzytkownik&gt;
+--
++ rejestracjaUzytkownika() : void
++ logowanieUzytkownika() : Integer
++ wypiszWszystkichUzytkownikow() : void
++ wczytajUzytkownikowZPliku() : void
+- podajDaneNowegoUzytkownika() : Integer
+- pobierzIdNowegoUzytkownika() : Integer
+- czyIstniejeLogin() : Bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>752</x>
+      <y>224</y>
+      <w>280</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Uzytkownik
+--
+- id : Integer
+- login : String
+- haslo : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>752</x>
+      <y>328</y>
+      <w>280</w>
+      <h>232</h>
+    </coordinates>
+    <panel_attributes>PlikZUZytkownikami
+--
+- nazwaPlikuZUzytkownikami : Dtring
+- plikTekstowy : fstream
+--
++ PlikZUzytkownikami()
++ dopiszUzytkownikaDoPliku() : void
++ wczytjaUzytkownikowZPliku() : vector &lt;Uzytkowniki&gt;
+- czyPlikJestPusty() : Bool
+- zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami : string
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>752</x>
+      <y>592</y>
+      <w>280</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>MetodyPomocnicze
+--
++ konwersjaIntNaString() : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
