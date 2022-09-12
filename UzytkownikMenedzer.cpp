@@ -109,61 +109,30 @@ void UzytkownikMenedzer::logowanieUzytkownika()
 
 void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
 {
-   /* string noweHaslo = "";
+    string noweHaslo = "";
     cout << "Podaj nowe haslo: ";
-    noweHaslo = wczytajLinie();
+    noweHaslo =MetodyPomocnicze::wczytajLinie();
 
-    for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
+    for (int i=0; i<uzytkownicy.size(); i++)
     {
-        if (itr -> id == idZalogowanegoUzytkownika)
+        if (uzytkownicy[i].pobierzId() == idZalogowanegoUzytkownika)
         {
-            itr -> haslo = noweHaslo;
+            uzytkownicy[i].ustawHaslo(noweHaslo);
             cout << "Haslo zostalo zmienione." << endl << endl;
             system("pause");
         }
     }
-    zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
-
-    */
+    plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
 
-/*
-void zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik> &uzytkownicy)
+void UzytkownikMenedzer::wylogowanieUzytkownika()
 {
-    fstream plikTekstowy;
-    string liniaZDanymiUzytkownika = "";
-    vector <Uzytkownik>::iterator itrKoniec = --uzytkownicy.end();
-
-    plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::out);
-
-    if (plikTekstowy.good() == true)
+    if(idZalogowanegoUzytkownika!=0)
     {
-        for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
-        {
-            liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(*itr);
-
-            if (itr == itrKoniec)
-            {
-               plikTekstowy << liniaZDanymiUzytkownika;
-            }
-            else
-            {
-                plikTekstowy << liniaZDanymiUzytkownika << endl;
-            }
-            liniaZDanymiUzytkownika = "";
-        }
+        idZalogowanegoUzytkownika=0;
+        cout<< "Zostales wylogowany";
     }
     else
-    {
-        cout << "Nie mozna otworzyc pliku " << nazwaPlikuZUzytkownikami << endl;
-    }
-    plikTekstowy.close();
+        cout<< "Nie zostales wylogowany, gdyz sie nie logowales..."<<endl;
+        system("pause");
 }
-
-//////////////////////////////////////////////////
-// Wylogowywanie
-case '8':
-                idZalogowanegoUzytkownika = 0;
-                adresaci.clear();
-
-*/
