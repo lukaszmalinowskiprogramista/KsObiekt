@@ -105,8 +105,6 @@ void UzytkownikMenedzer::logowanieUzytkownika()
     system("pause");
 }
 
-
-
 void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
 {
     string noweHaslo = "";
@@ -135,4 +133,9 @@ void UzytkownikMenedzer::wylogowanieUzytkownika()
     else
         cout<< "Nie zostales wylogowany, gdyz sie nie logowales..."<<endl;
         system("pause");
+}
+
+int UzytkownikMenedzer::przekazIdZalogowanegoUzytkownika()
+{
+    return idZalogowanegoUzytkownika;
 }
