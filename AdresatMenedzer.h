@@ -19,16 +19,19 @@ using namespace std;
 class AdresatMenedzer
 {
     vector <Adresat> adresaci;
-    int idOstatniegoAdresata;
     PlikZAdresatami plikZAdresatami;
+    int idOstatniegoAdresata;
 
     void wyswietlDaneAdresata(Adresat adresat);
     Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika);
 
     public:
-    AdresatMenedzer(){idOstatniegoAdresata=0;};
+    AdresatMenedzer (string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami) {
+    };
+
     void wyswietlWszystkichAdresatow();
     void dodajAdresata(int idZalogowanegoUzytkownika);
+    void wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
 
 };
 #endif
