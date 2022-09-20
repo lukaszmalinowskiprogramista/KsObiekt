@@ -8,6 +8,15 @@ string MetodyPomocnicze::konwerjsaIntNaString(int liczba)
     return str;
 }
 
+int MetodyPomocnicze::konwersjaStringNaInt(string liczba)
+{
+    int liczbaInt;
+    istringstream iss(liczba);
+    iss >> liczbaInt;
+
+    return liczbaInt;
+}
+
 string MetodyPomocnicze::wczytajLinie()
 {
     string wejscie = "";
@@ -23,4 +32,24 @@ string MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst
         tekst[0] = toupper(tekst[0]);
     }
     return tekst;
+}
+
+bool MetodyPomocnicze::czyPlikJestPusty(fstream& plikTekstowy)
+{
+    plikTekstowy.seekg(0, ios::end);
+    if (plikTekstowy.tellg() == 0)
+        return true;
+    else
+        return false;
+}
+
+string MetodyPomocnicze::pobierzLiczbe(string tekst, int pozycjaZnaku)
+{
+    string liczba = "";
+    while(isdigit(tekst[pozycjaZnaku]) == true)
+    {
+        liczba += tekst[pozycjaZnaku];
+        pozycjaZnaku ++;
+    }
+    return liczba;
 }
