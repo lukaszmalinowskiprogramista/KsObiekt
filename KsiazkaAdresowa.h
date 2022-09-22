@@ -12,6 +12,7 @@ class KsiazkaAdresowa
 {
     UzytkownikMenedzer uzytkownikMenedzer;
     AdresatMenedzer adresatMenedzer;
+    int idZalogowanegoUzytkownika;
 
 public:
     KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), adresatMenedzer(nazwaPlikuZAdresatami) {
@@ -20,7 +21,7 @@ public:
     idZalogowanegoUzytkownika= uzytkownikMenedzer.przekazIdZalogowanegoUzytkownika();
     };
 
-    int idZalogowanegoUzytkownika;
+
 
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();

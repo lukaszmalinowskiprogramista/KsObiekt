@@ -1,2 +1,0 @@
-1|Lukasz|ma|
-2|Michal|m|
