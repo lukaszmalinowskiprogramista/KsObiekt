@@ -25,28 +25,25 @@ void AdresatMenedzer::wyswietlDaneAdresata(Adresat adresat) {
 }
 
 
-void AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika) {
+void AdresatMenedzer::dodajAdresata() {
     system("cls");
-    if (idZalogowanegoUzytkownika!=0)
-    {
-    cout<<idZalogowanegoUzytkownika;
-    cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
-    Adresat adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika);
-    adresaci.push_back(adresat);
-    plikZAdresatami.dopiszAdresataDoPliku(adresat);}
-    else
-    {
+    if (ID_ZALOGOWANEGO_UZYTKOWNIKA!=0) {
+        cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
+        Adresat adresat = podajDaneNowegoAdresata();
+        adresaci.push_back(adresat);
+        plikZAdresatami.dopiszAdresataDoPliku(adresat);
+    } else {
         cout<<"Proszê siê wpierw zalogowac";
         system("Pause");
     }
 }
 
 
-Adresat AdresatMenedzer :: podajDaneNowegoAdresata(int idZalogowanegoUzytkownika) {
+Adresat AdresatMenedzer :: podajDaneNowegoAdresata() {
     Adresat adresat;
 
-    adresat.ustawIdAdresata(++idOstatniegoAdresata);
-    adresat.ustawIdUzytkownika(idZalogowanegoUzytkownika);
+    adresat.ustawIdAdresata(plikZAdresatami.pobierzIdOstatniegoAdresata()+1);
+    adresat.ustawIdUzytkownika(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
     cout << "Podaj imie: ";
     adresat.ustawImie(MetodyPomocnicze::wczytajLinie());
@@ -65,8 +62,4 @@ Adresat AdresatMenedzer :: podajDaneNowegoAdresata(int idZalogowanegoUzytkownika
     adresat.ustawAdres(MetodyPomocnicze::wczytajLinie());
 
     return adresat;
-}
-
-void AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika) {
-    adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika, idOstatniegoAdresata);
 }

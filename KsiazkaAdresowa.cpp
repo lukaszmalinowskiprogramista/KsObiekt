@@ -1,39 +1,40 @@
 #include "KsiazkaAdresowa.h"
 
-void KsiazkaAdresowa::rejestracjaUzytkownika()
-{
+void KsiazkaAdresowa::rejestracjaUzytkownika() {
     uzytkownikMenedzer.rejestracjaUzytkownika();
 }
 
-void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
-{
+void KsiazkaAdresowa::wypiszWszystkichUzytkownikow() {
     uzytkownikMenedzer.wypiszWszystkichUzytkownikow();
 }
 
-void KsiazkaAdresowa::logowanieUzytkownika()
-{
+void KsiazkaAdresowa::logowanieUzytkownika() {
     uzytkownikMenedzer.logowanieUzytkownika();
     idZalogowanegoUzytkownika = uzytkownikMenedzer.przekazIdZalogowanegoUzytkownika();
-    adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
+    if(uzytkownikMenedzer.czyUzytkownikJestZalogowany()) {
+        adresatMenedzer = new AdresatMenedzer(NAZWA_PLIKU_Z_ADRESATAMI, uzytkownikMenedzer.przekazIdZalogowanegoUzytkownika());
+    }
 }
 
-void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
-{
+void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika() {
     uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
 }
 
-void KsiazkaAdresowa::wylogowanieUzytkownika()
-{
+void KsiazkaAdresowa::wylogowanieUzytkownika() {
     uzytkownikMenedzer.wylogowanieUzytkownika();
     idZalogowanegoUzytkownika= uzytkownikMenedzer.przekazIdZalogowanegoUzytkownika();
+    delete adresatMenedzer;
+    adresatMenedzer = NULL;
 }
 
-void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
-{
-    adresatMenedzer.wyswietlWszystkichAdresatow();
+void KsiazkaAdresowa::wyswietlWszystkichAdresatow() {
+    adresatMenedzer->wyswietlWszystkichAdresatow();
 }
 
-void KsiazkaAdresowa::dodajAdresata()
-{
-    adresatMenedzer.dodajAdresata(idZalogowanegoUzytkownika);
+void KsiazkaAdresowa::dodajAdresata() {
+    adresatMenedzer->dodajAdresata();
+}
+
+bool KsiazkaAdresowa::czyUzytkownikJestZalogowany() {
+    return uzytkownikMenedzer.czyUzytkownikJestZalogowany();
 }

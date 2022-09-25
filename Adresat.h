@@ -5,10 +5,9 @@
 #include "UzytkownikMenedzer.h"
 using namespace std;
 
-class Adresat
-{
+class Adresat {
     int idAdresata;
-	int idUzytkownika;
+    int idUzytkownika;
     string imie;
     string nazwisko;
     string numerTelefonu;
@@ -16,6 +15,16 @@ class Adresat
     string adres;
 
 public:
+    Adresat(int idAdresata=0, int idUzytkownika=0, string imie="", string nazwisko="", string numerTelefonu="", string email="", string adres="")
+    {
+    this->  idAdresata=idAdresata;
+    this->  idUzytkownika=idUzytkownika;
+    this->  imie=imie;
+    this->  nazwisko=nazwisko;
+    this->  numerTelefonu=numerTelefonu;
+    this->  email=email;
+    this->  adres=adres;
+    }
     void ustawIdAdresata(int noweIdAdresata);
     void ustawImie(string noweImie);
     void ustawNazwisko(string noweNazwisko);
@@ -25,7 +34,7 @@ public:
     void ustawIdUzytkownika(int idUzytkownika);
 
     int pobierzIdAdresata();
-	string pobierzImie();
+    string pobierzImie();
     string pobierzNazwisko();
     string pobierzNumerTelefonu();
     string pobierzEmail();

@@ -54,18 +54,14 @@ void UzytkownikMenedzer::wypiszWszystkichUzytkownikow() {
         cout << uzytkownicy[i].pobierzLogin() << endl;
         cout << uzytkownicy[i].pobierzHaslo() << endl;
     }
-}
-
-void UzytkownikMenedzer::wczytajUzytkownikowZPliku() {
-    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+    system("Pause");
 }
 
 void UzytkownikMenedzer::logowanieUzytkownika() {
     Uzytkownik uzytkownik;
     bool poprawnyLogin=false;
-    idZalogowanegoUzytkownika=0;
-    cin.ignore();
     cout << "WITAM W LOGOWANIU "<<endl;
+    cin.ignore();
     cout << endl << "Podaj login: "<<endl;
     uzytkownik.ustawLogin(MetodyPomocnicze::wczytajLinie());
 
@@ -109,11 +105,18 @@ void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika() {
 void UzytkownikMenedzer::wylogowanieUzytkownika() {
     if(idZalogowanegoUzytkownika!=0) {
         idZalogowanegoUzytkownika=0;
-        cout<< "Zostales wylogowany";
+        cout<< "Zostales wylogowany"<<endl;
     } else
         cout<< "Nie zostales wylogowany, gdyz sie nie logowales..."<<endl;
 
     system("pause");
+}
+
+bool UzytkownikMenedzer::czyUzytkownikJestZalogowany() {
+    if (idZalogowanegoUzytkownika>0)
+        return true;
+    else
+        return false;
 }
 
 int UzytkownikMenedzer::przekazIdZalogowanegoUzytkownika() {
