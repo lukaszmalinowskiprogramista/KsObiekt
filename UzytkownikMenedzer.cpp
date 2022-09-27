@@ -21,7 +21,7 @@ Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika() {
 }
 
 int UzytkownikMenedzer::pobierzIdNowegoUzytkownika() {
-    if (uzytkownicy.empty() == true)
+    if (uzytkownicy.empty())
         return 1;
     else
         return uzytkownicy.back().pobierzId() + 1;
@@ -43,6 +43,7 @@ void UzytkownikMenedzer::rejestracjaUzytkownika() {
 
     uzytkownicy.push_back(uzytkownik);
     plikZUzytkownikami.dopiszUzytkownikaDoPliku(uzytkownik);
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
     cout << "Konto zalozono pomyslnie" << endl << endl;
     system("pause");
@@ -61,7 +62,6 @@ void UzytkownikMenedzer::logowanieUzytkownika() {
     Uzytkownik uzytkownik;
     bool poprawnyLogin=false;
     cout << "WITAM W LOGOWANIU "<<endl;
-    cin.ignore();
     cout << endl << "Podaj login: "<<endl;
     uzytkownik.ustawLogin(MetodyPomocnicze::wczytajLinie());
 
@@ -82,7 +82,7 @@ void UzytkownikMenedzer::logowanieUzytkownika() {
         }
         i++;
     }
-    if( poprawnyLogin==false)
+    if(!poprawnyLogin)
         cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
 }

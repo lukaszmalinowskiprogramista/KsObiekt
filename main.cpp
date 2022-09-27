@@ -12,7 +12,7 @@ int main() {
     char wybor;
 
     while (true) {
-        if (ksiazkaAdresowa.czyUzytkownikJestZalogowany() == false) {
+        if (!ksiazkaAdresowa.czyUzytkownikJestZalogowany()) {
             wybor = wybierzOpcjeZMenuGlownego();
 
             switch (wybor) {
@@ -21,9 +21,6 @@ int main() {
                 break;
             case '2':
                 ksiazkaAdresowa.logowanieUzytkownika();
-                break;
-            case '3':
-                ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
                 break;
             case '9':
                 exit(0);
@@ -56,17 +53,6 @@ int main() {
     return 0;
 }
 
-/*
-DOSTÊPNE METODY:
-czyUzytkownikJestZalogowany();          XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-rejestracjaUzytkownika();               XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-wypiszWszystkichUzytkownikow();         XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-logowanieUzytkownika();                 XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-zmianaHaslaZalogowanegoUzytkownika();   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-wylogowanieUzytkownika();               XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-wyswietlWszystkichAdresatow();          XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-dodajAdresata();                        XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-*/
 
 char wybierzOpcjeZMenuGlownego() {
     char wybor;
@@ -76,12 +62,11 @@ char wybierzOpcjeZMenuGlownego() {
     cout << "---------------------------" << endl;
     cout << "1. Rejestracja" << endl;
     cout << "2. Logowanie" << endl;
-    cout << "3. Wypisz wszystkich Uzytkonikow" << endl;
     cout << "9. Koniec programu" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
-    wybor = MetodyPomocnicze::wczytajZnak();
 
+    wybor = MetodyPomocnicze::wczytajZnak();
     return wybor;
 }
 
@@ -99,7 +84,6 @@ char wybierzOpcjeZMenuUzytkownika() {
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
     wybor = MetodyPomocnicze::wczytajZnak();
-
     return wybor;
 }
 

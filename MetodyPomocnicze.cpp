@@ -49,7 +49,6 @@ string MetodyPomocnicze::pobierzLiczbe(string tekst, int pozycjaZnaku) {
 char MetodyPomocnicze::wczytajZnak() {
     string wejscie = "";
     char znak  = {0};
-
     while (true) {
         getline(cin, wejscie);
 

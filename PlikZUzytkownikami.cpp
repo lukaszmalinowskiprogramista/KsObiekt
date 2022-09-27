@@ -6,10 +6,10 @@ void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik) {
 
     plikTekstowy.open(NAZWA_PLIKU_Z_UZYTKOWNIKAMI.c_str(), ios::app);
 
-    if (plikTekstowy.good() == true) {
+    if (plikTekstowy.good()) {
         liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownik);
 
-        if (MetodyPomocnicze::czyPlikJestPusty(plikTekstowy) == true) {
+        if (MetodyPomocnicze::czyPlikJestPusty(plikTekstowy)) {
             plikTekstowy << liniaZDanymiUzytkownika;
         } else {
             plikTekstowy << endl << liniaZDanymiUzytkownika ;
@@ -37,7 +37,7 @@ vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku() {
 
     plikTekstowy.open(NAZWA_PLIKU_Z_UZYTKOWNIKAMI.c_str(), ios::in);
 
-    if (plikTekstowy.good() == true) {
+    if (plikTekstowy.good()) {
         while (getline(plikTekstowy, daneJednegoUzytkownikaOddzielonePionowymiKreskami)) {
             uzytkownik = pobierzDaneUzytkownika(daneJednegoUzytkownikaOddzielonePionowymiKreskami);
             uzytkownicy.push_back(uzytkownik);
@@ -82,7 +82,7 @@ void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik>
 
     plikTekstowy.open(NAZWA_PLIKU_Z_UZYTKOWNIKAMI.c_str(), ios::out);
 
-    if (plikTekstowy.good() == true) {
+    if (plikTekstowy.good()) {
         for (int i=0; i< (int) uzytkownicy.size() ; i++) {
             liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownicy[i]);
 
