@@ -42,12 +42,18 @@ int main() {
                 ksiazkaAdresowa.dodajAdresata();
                 break;
             case '2':
-                ksiazkaAdresowa.wyswietlWszystkichAdresatow();
+                ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
                 break;
             case '3':
-                ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
+                ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
                 break;
             case '4':
+                ksiazkaAdresowa.wyswietlWszystkichAdresatow();
+                break;
+            case '7':
+                ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
+                break;
+            case '8':
                 ksiazkaAdresowa.wylogowanieUzytkownika();
                 break;
             }
@@ -92,10 +98,12 @@ char wybierzOpcjeZMenuUzytkownika() {
     cout << " >>> MENU UZYTKOWNIKA <<<" << endl;
     cout << "---------------------------" << endl;
     cout << "1. Dodaj adresata" << endl;
-    cout << "2. Wyswietl adresatow" << endl;
+    cout << "2. Wyszukaj po imieniu" << endl;
+    cout << "3. Wyszukaj po nazwisku" << endl;
+    cout << "4. Wyswietl adresatow" << endl;
     cout << "---------------------------" << endl;
-    cout << "3. Zmien haslo" << endl;
-    cout << "4. Wyloguj sie" << endl;
+    cout << "7. Zmien haslo" << endl;
+    cout << "8. Wyloguj sie" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
     wybor = MetodyPomocnicze::wczytajZnak();
@@ -103,6 +111,16 @@ char wybierzOpcjeZMenuUzytkownika() {
     return wybor;
 }
 
+
+/*char wybierzOpcjeZMenuUzytkownika()
+{
+
+
+
+    cout << "5. Usun adresata" << endl;
+    cout << "6. Edytuj adresata" << endl;
+
+*/
 
 
 

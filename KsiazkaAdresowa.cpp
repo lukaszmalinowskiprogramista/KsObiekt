@@ -35,6 +35,14 @@ void KsiazkaAdresowa::dodajAdresata() {
     adresatMenedzer->dodajAdresata();
 }
 
+void KsiazkaAdresowa::wyszukajAdresatowPoImieniu(){
+    adresatMenedzer->wyszukajAdresatowPoImieniu();
+}
+
+void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku(){
+    adresatMenedzer->wyszukajAdresatowPoNazwisku();
+}
+
 bool KsiazkaAdresowa::czyUzytkownikJestZalogowany() {
     return uzytkownikMenedzer.czyUzytkownikJestZalogowany();
 }

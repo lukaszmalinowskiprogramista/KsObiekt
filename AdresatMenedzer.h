@@ -32,5 +32,8 @@ public:
 
     void wyswietlWszystkichAdresatow();
     void dodajAdresata();
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
+    void wyswietlIloscWyszukanychAdresatow(int);
 };
 #endif
